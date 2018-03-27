@@ -22,6 +22,7 @@ static struct termios initial_settings, new_settings;
 
 static int peek_character = -1;
 
+//For Linux
 void init_keyboard()
 {
     tcgetattr(0,&initial_settings);
@@ -33,11 +34,13 @@ void init_keyboard()
     tcsetattr(0, TCSANOW, &new_settings);
 }
 
+// For Linux
 void close_keyboard()
 {
     tcsetattr(0, TCSANOW, &initial_settings);
 }
 
+//For Linux
 int _getch()
 {
     char ch;
@@ -52,7 +55,7 @@ int _getch()
     return ch;
 }
 
-
+//For Linux
 int _kbhit()
 {
     unsigned char ch;
@@ -193,10 +196,10 @@ void logic()
 
 void input()
 {
-	static int count;
-	
-	static char ch;
 
+	//Windows User must Delete the _kbhit() and _getch() functions.
+	//And add conio.h header file.
+	 
 	if(_kbhit())
 	{
 		switch(_getch())
@@ -226,6 +229,7 @@ void input()
 
 int main()
 {
+	//For Linux
 	init_keyboard();
 	setup();
 
@@ -237,6 +241,8 @@ int main()
 		logic();
 		usleep(100000);
 	}
+
+	// For Linux
 	close_keyboard();
 	return 0;
 }
