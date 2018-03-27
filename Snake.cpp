@@ -87,7 +87,7 @@ void setup()
 void draw()
 {
 	system("clear");
-	for(int i=0;i<width;i++)
+	for(int i=0;i<=width;i++)
 		cout<<"#";
 
 	cout<<endl;
@@ -122,7 +122,7 @@ void draw()
 		}
 		cout<<endl;
 	}
-	for(int i=0;i<width;i++)
+	for(int i=0;i<=width;i++)
 		cout<<"#";
 
 	cout<<endl;
@@ -172,9 +172,6 @@ void logic()
 				break;
 	}
 
-	if(snakeX > width || snakeX < 0 || snakeY > height || snakeY < 0)
-		gameOver = true;
-	
 	for(int i=0;i<tail_length;i++)
 	{
 		if(snakeX == tailX[i] && snakeY == tailY[i])
@@ -192,6 +189,13 @@ void logic()
 		tail_length++;
 	}
 
+	if(snakeX >= width-1 || snakeX < 0 || snakeY >= height || snakeY < 0)
+	{
+		gameOver = true;
+	}
+	
+	
+
 }
 
 void input()
@@ -199,7 +203,7 @@ void input()
 
 	//Windows User must Delete the _kbhit() and _getch() functions.
 	//And add conio.h header file.
-	 
+
 	if(_kbhit())
 	{
 		switch(_getch())
