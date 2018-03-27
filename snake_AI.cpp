@@ -266,5 +266,6 @@ int main()
 		// delay(20);
 	}
 
+	close_keyboard();
 	return 0;
 }
