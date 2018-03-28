@@ -87,8 +87,8 @@ void setup()
 void draw()
 {
 	system("clear");
-	for(int i=0;i<=width;i++)
-		cout<<"#";
+	for(int i=0;i<width;i++)
+		cout<<"ꟷ";
 
 	cout<<endl;
 
@@ -97,13 +97,13 @@ void draw()
 		for(int j=0;j<width;j++)
 		{
 			if(j == 0 || j == width-1)
-				cout<<"#";
+				cout<<"ⅼ";
 
 			if(i == snakeY && j == snakeX)
-				cout<<"O";
+				cout<<"Ȫ";
 
 			else if(i == fruitY && j == fruitX)
-				cout<<"F";
+				cout<<"ṑ";
 
 			else
 			{
@@ -120,10 +120,11 @@ void draw()
 				cout<<" ";
 			}
 		}
+
 		cout<<endl;
 	}
-	for(int i=0;i<=width;i++)
-		cout<<"#";
+	for(int i=0;i<width;i++)
+		cout<<"ꟷ";
 
 	cout<<endl;
 	cout<<"SCORE : "<<score<<endl;
